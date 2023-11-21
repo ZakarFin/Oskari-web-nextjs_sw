@@ -33,6 +33,12 @@ export const Docs = defineDocumentType(() => ({
         return insertIdsToHeaders(doc.body.html)
       },
     },
+    isRPC: {
+      type: 'boolean',
+      resolve: (doc) => {
+        return doc._raw.sourceFileName.toUpperCase().includes('RPC')
+      },
+    },
   },
 }))
 

@@ -99,6 +99,10 @@ export default async function SingleDocPage({
     <>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <VersionSidebar selectedVersion={params.version} versions={versions} />
+        <label className='flex justify-between px-4'>
+          <span className='font-bold'>Only RPC</span>
+          <input type='checkbox' />
+        </label>
         {post?.html && (
           <AccordionGroup>
             {Object.keys(groupedAnchorLinks).map((key) => (
@@ -121,7 +125,10 @@ export default async function SingleDocPage({
             <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
           </div>
         ) : (
-          <h2>Document not found</h2>
+          <>
+            <h2>Sorry!</h2>
+            <p>Document not found</p>
+          </>
         )}
       </div>
     </>
